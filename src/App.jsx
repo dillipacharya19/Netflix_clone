@@ -1,16 +1,15 @@
 
-import './App.css'
+import Body from './components/Body'
 
 function App() {
  
 
   return (
-    <>
-      
-      <h1 className='bg-amber-700 text-white text-center'>Vite + React</h1>
+   <>
+   <Body/>
+   </>
     
-      
-    </>
+   
   )
 }
 

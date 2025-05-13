@@ -1,7 +1,10 @@
 # NetflixGPT
 
 - create a react app
-- Configured Tailwind css
+- Configured TailwindCSS
+- Header
+- Login Form
+- Sign Up Form
 
 Features
 Login/Sign Up
