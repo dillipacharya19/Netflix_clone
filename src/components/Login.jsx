@@ -6,6 +6,8 @@ import { checkValidDate } from '../utils/validate.js';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice.js';
+import { updateProfile } from "firebase/auth";
+import { USER_AVTAR } from '../utils/constants.js';
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -30,14 +32,16 @@ const Login = () => {
 
       createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
+           const user = userCredential.user;
+
           console.log("Signed up user:", userCredential.user);
 
           updateProfile(user, {
-            displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/132689299?v=4"
+            displayName: name.current.value, photoURL: USER_AVTAR
           }).then(() => {
 
-            const { uid, email, dispalyName, photoURL } = auth.currentUser;
-            dispatch(addUser({ uid: uid, email: email, displayName: dispalyName, photoURL: photoURL }));
+            const { uid, email, displayName, photoURL } = auth.currentUser;
+            dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
 
             navigate("/browse");
           }).catch((error) => {
