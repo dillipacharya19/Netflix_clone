@@ -34,7 +34,7 @@ const Login = () => {
         .then((userCredential) => {
            const user = userCredential.user;
 
-          console.log("Signed up user:", userCredential.user);
+       
 
           updateProfile(user, {
             displayName: name.current.value, photoURL: USER_AVTAR
@@ -56,7 +56,7 @@ const Login = () => {
     } else {
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
-          console.log("Signed in user:", userCredential.user);
+         
           navigate("/browse");
         })
         .catch((error) => {

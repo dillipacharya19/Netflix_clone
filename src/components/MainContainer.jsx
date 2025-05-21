@@ -7,11 +7,11 @@ const MainContainer = () => {
     const movies= useSelector((state)=>state.movies?.nowPlayingMovies);  
     if(! movies)return;
     const mainMovies= movies[0];
-    console.log(mainMovies);
+    
     
     const {title, overview,id}= mainMovies; 
   return (
-    <div>MainContainer
+    <div>
         <VideoTitle title={title} overview={overview}/>
         <VideoBackround movieId={id}/>
     </div>
